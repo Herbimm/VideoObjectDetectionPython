@@ -8,9 +8,9 @@ print(major_ver)
 print(minor_ver)
 print(subminor_ver)
 
-tracker_types = ['BOOSTING', "MIL", "KCF", "TLD",  "MEDIANFLOW", "MOSSE", "CSRT"]
+tracker_types = ['BOOSTING', "MIL","KCF", "TLD",  "MEDIANFLOW", "MOSSE", "CSRT"]
 
-tracker_type = tracker_types[1]
+tracker_type = tracker_types[2]
 
 print(tracker_type)
 
@@ -18,7 +18,7 @@ if int(minor_ver) < 3:
     tracker = tracker_type
 else:
     if tracker_type == "BOOSTING":
-        print('error boosting')
+        tracker = cv2.TrackerDaSiamRPN.create()
     if tracker_type == "MIL":
         tracker = cv2.TrackerMIL.create()
     if tracker_type == "KCF":
@@ -31,6 +31,7 @@ else:
         print("MOSSE ERROR")
     if tracker_type == "CSRT":
         tracker = cv2.TrackerCSRT.create()
+
 
 #print(tracker)
 
